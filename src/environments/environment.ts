@@ -10,8 +10,8 @@ export const environment = {
     projectId: "prueba1-f990f",
     storageBucket: "prueba1-f990f.firebasestorage.app",
     messagingSenderId: "471771830127",
-    appId: "1:471771830127:web:b5bd88ebc771c9d2f57a9a",
-    measurementId: "G-D2SDMPBD36"
+    appId: "1:471771830127:web:c55a1edd4580fe63f57a9a",
+    measurementId: "G-VJBB648JLE"
   }
 };
 

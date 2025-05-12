@@ -1,55 +1,66 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Formulario</ion-title>
+    <ion-title>Formulario de Datos</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
-  <ion-item>
-    <ion-label position="floating">Nombre</ion-label>
-    <ion-input [(ngModel)]="formData.name"></ion-input>
-  </ion-item>
+  <form (ngSubmit)="submitForm()">
+    <!-- Campo de texto: Nombre -->
+    <ion-item>
+      <ion-label position="floating">Nombre</ion-label>
+      <ion-input [(ngModel)]="formData.name" name="name" required></ion-input>
+    </ion-item>
 
-  <ion-item>
-    <ion-label position="floating">Correo electrónico</ion-label>
-    <ion-input [(ngModel)]="formData.email" type="email"></ion-input>
-  </ion-item>
+    <!-- Campo de correo electrónico -->
+    <ion-item>
+      <ion-label position="floating">Correo Electrónico</ion-label>
+      <ion-input [(ngModel)]="formData.email" name="email" type="email" required></ion-input>
+    </ion-item>
 
-  <ion-item>
-    <ion-label position="floating">Edad</ion-label>
-    <ion-input [(ngModel)]="formData.age" type="number"></ion-input>
-  </ion-item>
+    <!-- Campo numérico: Edad -->
+    <ion-item>
+      <ion-label position="floating">Edad</ion-label>
+      <ion-input [(ngModel)]="formData.age" name="age" type="number" required></ion-input>
+    </ion-item>
 
-  <ion-item>
-    <ion-label>Fecha de nacimiento</ion-label>
-    <ion-datetime [(ngModel)]="formData.birthDate" presentation="date"></ion-datetime>
-  </ion-item>
+    <!-- Datepicker: Fecha de nacimiento -->
+    <ion-item>
+      <ion-label>Fecha de Nacimiento</ion-label>
+      <ion-datetime [(ngModel)]="formData.birthDate" name="birthDate" presentation="Datepicker"></ion-datetime>
+    </ion-item>
 
-  <ion-item>
-    <ion-label>Género</ion-label>
-    <ion-select [(ngModel)]="formData.gender">
-      <ion-select-option value="Masculino">Masculino</ion-select-option>
-      <ion-select-option value="Femenino">Femenino</ion-select-option>
-      <ion-select-option value="Otro">Otro</ion-select-option>
-    </ion-select>
-  </ion-item>
+    <!-- Selección única: Género -->
+    <ion-item>
+      <ion-label>Género</ion-label>
+      <ion-select [(ngModel)]="formData.gender" name="gender" required>
+        <ion-select-option value="Masculino">Masculino</ion-select-option>
+        <ion-select-option value="Femenino">Femenino</ion-select-option>
+        <ion-select-option value="Otro">Otro</ion-select-option>
+      </ion-select>
+    </ion-item>
 
-  <ion-item>
-    <ion-label>Hobbies</ion-label>
-    <ion-select [(ngModel)]="formData.hobbies" multiple="true">
-      <ion-select-option *ngFor="let hobby of hobbyOptions" [value]="hobby">{{ hobby }}</ion-select-option>
-    </ion-select>
-  </ion-item>
+    <!-- Selección múltiple: Hobbies -->
+    <ion-item>
+      <ion-label>Hobbies</ion-label>
+      <ion-select [(ngModel)]="formData.hobbies" name="hobbies" multiple="true">
+        <ion-select-option *ngFor="let hobby of hobbyOptions" [value]="hobby">{{ hobby }}</ion-select-option>
+      </ion-select>
+    </ion-item>
 
-  <ion-item>
-    <ion-label position="floating">País</ion-label>
-    <ion-input [(ngModel)]="formData.country"></ion-input>
-  </ion-item>
+    <!-- Campo de texto: País -->
+    <ion-item>
+      <ion-label position="floating">País</ion-label>
+      <ion-input [(ngModel)]="formData.country" name="country" required></ion-input>
+    </ion-item>
 
-  <ion-item>
-    <ion-label position="floating">Comentarios</ion-label>
-    <ion-textarea [(ngModel)]="formData.comments"></ion-textarea>
-  </ion-item>
+    <!-- Campo de texto: Comentarios -->
+    <ion-item>
+      <ion-label position="floating">Comentarios</ion-label>
+      <ion-textarea [(ngModel)]="formData.comments" name="comments"></ion-textarea>
+    </ion-item>
 
-  <ion-button expand="block" (click)="submitForm()">Enviar</ion-button>
+    <!-- Botón de envío -->
+    <ion-button expand="block" type="submit">Enviar</ion-button>
+  </form>
 </ion-content>

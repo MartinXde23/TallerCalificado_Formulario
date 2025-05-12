@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Firestore, collection, addDoc } from '@angular/fire/firestore';
+import { Firestore, collection, addDoc, } from '@angular/fire/firestore';
 import { FormData } from '../models/formdata.model';
 
 @Injectable({
@@ -11,6 +11,7 @@ export class FormService {
   saveFormData(data: FormData) {
     const formRef = collection(this.firestore, 'formData');
     return addDoc(formRef, {
+      
       ...data,
       createdAt: Date.now()
     });
